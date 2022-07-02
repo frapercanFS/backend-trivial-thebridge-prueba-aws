@@ -14,3 +14,15 @@ async function create(body) {
   let categorias = new Categorias(body);
   return await categorias.save();
 }
+
+
+async function listaCategoria() {
+    const verCategorias = await Categorias.find()
+   
+ 
+    return verCategorias
+    
+    }
+    listaCategoria().then(categorias => {
+        console.log("Categoria", categorias); 
+    });
