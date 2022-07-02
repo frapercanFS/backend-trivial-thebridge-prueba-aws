@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --coverage",
-    "lint": "npx eslint *", 
-    "lint-fix":"npx eslint --fix"
+    "lint": "eslint '**/*.{js,jsx}'",
+    "lint-fix":"eslint '**/*.{js,jsx}' --fix"
   },
   "repository": {
     "type": "git",
