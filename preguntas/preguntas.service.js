@@ -1,6 +1,6 @@
 const db = require('../_helpers/db')
 const Pregunta = db.Pregunta
-const Categoria = db.Categoria
+const Categoria = db.Categorias
 
 module.exports = {
   getAll,
@@ -18,6 +18,6 @@ async function create (body) {
 };
 
 async function getPreguntasByCategory (body) {
-  const categoria = new Categoria(body.categoria)
-  return await Pregunta.find({ "categoria" : categoria })
-}
+  const categoria = await Categoria.findById(body.categoria)
+  return await Pregunta.find({categoria: categoria}).limit(5)
+};
