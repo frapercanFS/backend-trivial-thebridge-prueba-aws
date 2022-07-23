@@ -18,8 +18,7 @@ async function create(body) {
 };
 
 async function getPreguntasByCategory(body) {
-  const categoria = await Categoria.findById(body.categoria)
-  console.log(categoria, body)
+  const categoria = await Categoria.findOne({nombre:body.categoria})
   return await Pregunta.find({ categoria: categoria }).limit(5)
 
 };
