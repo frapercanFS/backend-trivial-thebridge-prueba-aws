@@ -1,20 +1,20 @@
-const db = require("../_helpers/db");
-const Pregunta = db.Pregunta;
-const Categoria = db.Categorias;
+const db = require('../_helpers/db')
+const Pregunta = db.Pregunta
+const Categoria = db.Categorias
 
 module.exports = {
   getAll,
   create,
-  getPreguntasByCategory,
-};
-
-async function getAll() {
-  return await Pregunta.find();
+  getPreguntasByCategory
 }
 
-async function create(body) {
-  const pregunta = new Pregunta(body);
-  return await pregunta.save();
+async function getAll () {
+  return await Pregunta.find()
+}
+
+async function create (body) {
+  const pregunta = new Pregunta(body)
+  return await pregunta.save()
 }
 
 async function getPreguntasByCategory (body) {

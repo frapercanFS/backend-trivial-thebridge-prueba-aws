@@ -17,6 +17,5 @@ fetch(
         let categoriaInsertar = new Categoria(categoriaTransformada)
         categoriaInsertar.save()
       })
-
     })
   )
