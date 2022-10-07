@@ -6,11 +6,17 @@ module.exports = {
   getAll,
   create,
   getPreguntasByCategory,
+  remove
 };
 
 async function getAll() {
   return await Pregunta.find();
 }
+
+async function remove(body) {
+  return await Pregunta.findByIdAndDelete(body.id);
+}
+
 
 async function create(body) {
   const pregunta = new Pregunta(body);
@@ -18,6 +24,6 @@ async function create(body) {
 }
 
 async function getPreguntasByCategory (body) {
-  const categoria = await Categoria.findOne({ nombre: body.categoria })
+  const categoria = await Categoria.findById( body.id )
   return await Pregunta.find({ categoria }).limit(5)
 }

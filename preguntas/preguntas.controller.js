@@ -5,6 +5,7 @@ const preguntaService = require('./preguntas.service')
 // routes
 router.get('/', getAll)
 router.post('/', create)
+router.delete('/', remove)
 router.post('/categoria', getPreguntasByCategory)
 
 module.exports = router
@@ -25,6 +26,14 @@ function create (req, res, next) {
   console.log(req.body)
 
   preguntaService.create(req.body)
+    .then(preguntas => res.json(preguntas))
+    .catch(err => next(err))
+}
+
+function remove (req, res, next) {
+  console.log(req.body)
+
+  preguntaService.remove(req.body)
     .then(preguntas => res.json(preguntas))
     .catch(err => next(err))
 }
