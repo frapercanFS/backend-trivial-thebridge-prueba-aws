@@ -21,7 +21,7 @@ app.use('/categorias', require('./categorias/categorias.controller'));
 app.use('/jugador', require('./jugador/jugador.controller'));
 
 // set port, listen for requests
-const port = process.env.NODE_ENV === 'DEV' ? (process.env.PORT || 80) : 4000;
+const port = 80;
 const server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
